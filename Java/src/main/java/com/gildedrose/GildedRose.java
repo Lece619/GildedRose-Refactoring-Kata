@@ -15,9 +15,9 @@ class GildedRose {
 
     //재설계가 아닌 리팩토링이므로, 기존의 로직을 그대로 가져옴
     public void updateQuality() {
-        for (Item item : items) {
+        for (StoredItem item : items) {
 
-            changeSellin(item);
+            item.changeSellin();
 
             if (!isAgedBrie(item)
                 && !isBackstagePasses(item)) {
@@ -66,13 +66,6 @@ class GildedRose {
                     }
                 }
             }
-        }
-    }
-
-    private void changeSellin(Item item) {
-        //chage sellIn
-        if (!isSulfuras(item)) {
-            item.sellIn = item.sellIn - 1;
         }
     }
 

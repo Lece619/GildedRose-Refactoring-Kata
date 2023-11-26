@@ -1,10 +1,10 @@
-package com.gildedrose.Items;
+package com.gildedrose.items;
 
 import com.gildedrose.StoredItem;
 
-public class Aged_Brie extends StoredItem {
+public class AgedBrie extends StoredItem {
 
-    public Aged_Brie(String name, int sellIn, int quality) {
+    public AgedBrie(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
     }
 

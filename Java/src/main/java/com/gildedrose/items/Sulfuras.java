@@ -1,4 +1,4 @@
-package com.gildedrose.Items;
+package com.gildedrose.items;
 
 import com.gildedrose.StoredItem;
 
@@ -14,6 +14,5 @@ public class Sulfuras extends StoredItem {
 
     @Override
     public void changeQuality() {
-
     }
 }

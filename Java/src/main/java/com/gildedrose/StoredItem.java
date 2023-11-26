@@ -1,8 +1,9 @@
 package com.gildedrose;
 
-import com.gildedrose.Items.Aged_Brie;
-import com.gildedrose.Items.Baskstage_passes;
-import com.gildedrose.Items.Sulfuras;
+import com.gildedrose.items.AgedBrie;
+import com.gildedrose.items.BaskstagePasses;
+import com.gildedrose.items.NormalItem;
+import com.gildedrose.items.Sulfuras;
 
 public abstract class StoredItem extends Item{
 
@@ -13,13 +14,13 @@ public abstract class StoredItem extends Item{
     public static StoredItem createStoredItem(Item item) {
         switch (item.name) {
             case "Aged Brie":
-                return new Aged_Brie(item.name, item.sellIn, item.quality);
+                return new AgedBrie(item.name, item.sellIn, item.quality);
             case "Backstage passes to a TAFKAL80ETC concert":
-                return new Baskstage_passes(item.name, item.sellIn, item.quality);
+                return new BaskstagePasses(item.name, item.sellIn, item.quality);
             case "Sulfuras, Hand of Ragnaros":
                 return new Sulfuras(item.name, item.sellIn, item.quality);
             default:
-                throw new IllegalArgumentException("Item not found");
+                return new NormalItem(item.name, item.sellIn, item.quality);
         }
     }
 
@@ -27,5 +28,13 @@ public abstract class StoredItem extends Item{
         this.sellIn--;
     }
 
-    public abstract void changeQuality();
+    public void changeQuality(){
+        if(this.quality > 0) {
+            this.quality = this.quality - 1;
+        }
+
+        if(this.sellIn < 0 && this.quality > 0) {
+            this.quality = this.quality - 1;
+        }
+    }
 }
