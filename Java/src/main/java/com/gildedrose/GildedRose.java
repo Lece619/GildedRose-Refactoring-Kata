@@ -3,14 +3,14 @@ package com.gildedrose;
 import java.util.Arrays;
 
 class GildedRose {
-    Item[] items;
+    StoredItem[] items;
 
     public GildedRose(Item[] items) {
         this.items = storeItem(items);
     }
 
-    public Item[] storeItem(Item[] items){
-        return Arrays.stream(items).map(StoredItems::createStoredItem).toArray(Item[]::new);
+    public StoredItem[] storeItem(Item[] items){
+        return Arrays.stream(items).map(StoredItem::createStoredItem).toArray(StoredItem[]::new);
     }
 
     //재설계가 아닌 리팩토링이므로, 기존의 로직을 그대로 가져옴

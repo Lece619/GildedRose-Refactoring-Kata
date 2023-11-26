@@ -4,13 +4,13 @@ import com.gildedrose.Items.Aged_Brie;
 import com.gildedrose.Items.Baskstage_passes;
 import com.gildedrose.Items.Sulfuras;
 
-public abstract class StoredItems extends Item{
+public abstract class StoredItem extends Item{
 
-    public StoredItems(String name, int sellIn, int quality) {
+    public StoredItem(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
     }
 
-    public static StoredItems createStoredItem(Item item) {
+    public static StoredItem createStoredItem(Item item) {
         switch (item.name) {
             case "Aged Brie":
                 return new Aged_Brie(item.name, item.sellIn, item.quality);
