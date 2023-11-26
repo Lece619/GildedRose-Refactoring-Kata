@@ -1,10 +1,16 @@
 package com.gildedrose;
 
+import java.util.Arrays;
+
 class GildedRose {
     Item[] items;
 
     public GildedRose(Item[] items) {
-        this.items = items;
+        this.items = storeItem(items);
+    }
+
+    public Item[] storeItem(Item[] items){
+        return Arrays.stream(items).map(StoredItems::createStoredItem).toArray(Item[]::new);
     }
 
     //재설계가 아닌 리팩토링이므로, 기존의 로직을 그대로 가져옴

@@ -10,14 +10,14 @@ public abstract class StoredItems extends Item{
         super(name, sellIn, quality);
     }
 
-    public static StoredItems createStoredItem(String name, int sellIn, int quality) {
-        switch (name) {
+    public static StoredItems createStoredItem(Item item) {
+        switch (item.name) {
             case "Aged Brie":
-                return new Aged_Brie(name, sellIn, quality);
+                return new Aged_Brie(item.name, item.sellIn, item.quality);
             case "Backstage passes to a TAFKAL80ETC concert":
-                return new Baskstage_passes(name, sellIn, quality);
+                return new Baskstage_passes(item.name, item.sellIn, item.quality);
             case "Sulfuras, Hand of Ragnaros":
-                return new Sulfuras(name, sellIn, quality);
+                return new Sulfuras(item.name, item.sellIn, item.quality);
             default:
                 throw new IllegalArgumentException("Item not found");
         }
