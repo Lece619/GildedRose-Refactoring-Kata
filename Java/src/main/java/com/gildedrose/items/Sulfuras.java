@@ -9,10 +9,17 @@ public class Sulfuras extends StoredItem {
     }
 
     @Override
-    public void changeSellin() {
+    public void changeSellIn() {
+        return;
     }
 
     @Override
     public void changeQuality() {
+        return;
+    }
+
+    @Override
+    protected void changeQualitySellInOver() {
+        return;
     }
 }

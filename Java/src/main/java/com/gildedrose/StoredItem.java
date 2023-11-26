@@ -5,7 +5,17 @@ import com.gildedrose.items.BaskstagePasses;
 import com.gildedrose.items.NormalItem;
 import com.gildedrose.items.Sulfuras;
 
-public abstract class StoredItem extends Item{
+public abstract class StoredItem extends Item {
+
+    private static final int QUALITY_MAX_QUANTITY = 50;
+    private static final int QUALITY_MIN_QUANTITY = 0;
+    private static final int QUALITY_INCREASE_QUANTITY = 1;
+    private static final int QUALITY_DECREASE_QUANTITY = 1;
+    private static final int SELLIN_DECREASE_QUANTITY = 1;
+    private static final int SELLIN_MIN_QUANTITY = 0;
+    private static final String AGED_BRIE = "Aged Brie";
+    private static final String BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT = "Backstage passes to a TAFKAL80ETC concert";
+    private static final String SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
 
     public StoredItem(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
@@ -13,28 +23,48 @@ public abstract class StoredItem extends Item{
 
     public static StoredItem createStoredItem(Item item) {
         switch (item.name) {
-            case "Aged Brie":
+            case AGED_BRIE:
                 return new AgedBrie(item.name, item.sellIn, item.quality);
-            case "Backstage passes to a TAFKAL80ETC concert":
+            case BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT:
                 return new BaskstagePasses(item.name, item.sellIn, item.quality);
-            case "Sulfuras, Hand of Ragnaros":
+            case SULFURAS_HAND_OF_RAGNAROS:
                 return new Sulfuras(item.name, item.sellIn, item.quality);
             default:
                 return new NormalItem(item.name, item.sellIn, item.quality);
         }
     }
 
-    public void changeSellin() {
-        this.sellIn--;
+    public void changeDay() {
+
+        changeSellIn();
+        changeQuality();
+
+        if (sellInDayOver()) {
+            changeQualitySellInOver();
+        }
     }
 
-    public void changeQuality(){
-        if(this.quality > 0) {
-            this.quality = this.quality - 1;
-        }
+    private boolean sellInDayOver() {
+        return this.sellIn < 0;
+    }
 
-        if(this.sellIn < 0 && this.quality > 0) {
-            this.quality = this.quality - 1;
-        }
+    protected void changeSellIn() {
+        this.sellIn = this.sellIn - SELLIN_DECREASE_QUANTITY;
+    }
+
+    protected void changeQuality() {
+        decreaseQuality();
+    }
+
+    protected void changeQualitySellInOver() {
+        decreaseQuality();
+    }
+
+    private void decreaseQuality() {
+        this.quality = Math.max(this.quality - QUALITY_DECREASE_QUANTITY, 0);
+    }
+
+    protected void increaseQuality() {
+        this.quality = Math.min(this.quality + QUALITY_MAX_QUANTITY, QUALITY_MAX_QUANTITY);
     }
 }

@@ -10,6 +10,11 @@ public class AgedBrie extends StoredItem {
 
     @Override
     public void changeQuality() {
+        increaseQuality();
+    }
 
+    @Override
+    protected void changeQualitySellInOver() {
+        return;
     }
 }
