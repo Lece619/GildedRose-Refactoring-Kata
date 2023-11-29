@@ -45,7 +45,7 @@ public abstract class StoredItem extends Item {
     }
 
     private boolean sellInDayOver() {
-        return this.sellIn < 0;
+        return this.sellIn < SELLIN_MIN_QUANTITY;
     }
 
     protected void changeSellIn() {
