@@ -25,11 +25,19 @@ public class TestGildedRose {
     public static void main(String[] args) {
         Item item = new Item("foo", 1, 0);
         ItemComparisonRecord comparisonRecord = new ItemComparisonRecord(item);
-        System.out.println(" sellIn : " + item.sellIn);
+        System.out.println("sellIn : " + item.sellIn);
         System.out.println(comparisonRecord.isSellInNegativeNumber());
         item.sellIn = -1;
-        System.out.println(" sellIn : " + item.sellIn);
+        System.out.println("sellIn : " + item.sellIn);
         System.out.println(comparisonRecord.isSellInNegativeNumber());
+        /*
+        console
+        sellIn : 1
+        false
+        sellIn : -1
+        false
+         */
     }
+
 
 }
