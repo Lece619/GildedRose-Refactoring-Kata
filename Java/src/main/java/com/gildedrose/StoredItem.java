@@ -10,7 +10,7 @@ public abstract class StoredItem extends Item {
     private static final int QUALITY_MAX_QUANTITY = 50;
     private static final int QUALITY_MIN_QUANTITY = 0;
     private static final int QUALITY_INCREASE_DEFAULT_QUANTITY = 1;
-    private static final int QUALITY_DECREASE_QUANTITY = 1;
+    private static final int QUALITY_DECREASE_DEFAULT_QUANTITY = 1;
     private static final int SELLIN_DECREASE_QUANTITY = 1;
     private static final int SELLIN_MIN_QUANTITY = 0;
     private static final String AGED_BRIE = "Aged Brie";
@@ -53,11 +53,11 @@ public abstract class StoredItem extends Item {
     }
 
     protected void changeQuality() {
-        decreaseQuality(QUALITY_DECREASE_QUANTITY);
+        decreaseQuality(QUALITY_DECREASE_DEFAULT_QUANTITY);
     }
 
     protected void changeQualitySellInOver() {
-        decreaseQuality(QUALITY_DECREASE_QUANTITY);
+        decreaseQuality(QUALITY_DECREASE_DEFAULT_QUANTITY);
     }
 
     protected void decreaseQuality(int decreaseQuantity) {
