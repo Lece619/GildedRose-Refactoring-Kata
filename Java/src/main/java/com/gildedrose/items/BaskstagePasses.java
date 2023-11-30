@@ -13,14 +13,14 @@ public class BaskstagePasses extends StoredItem {
     @Override
     public void changeQuality() {
 
-        increaseQuality();
+        increaseQuality(QUALITY_INCREASE_DEFAULT_QUANTITY);
 
         if (stageStartBefore(10)) {
-            increaseQuality();
+            increaseQuality(QUALITY_INCREASE_DEFAULT_QUANTITY);
         }
 
         if (stageStartBefore(5)) {
-            increaseQuality();
+            increaseQuality(QUALITY_INCREASE_DEFAULT_QUANTITY);
         }
     }
 
