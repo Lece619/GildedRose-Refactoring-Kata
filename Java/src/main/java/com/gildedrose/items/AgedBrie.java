@@ -10,12 +10,12 @@ public class AgedBrie extends StoredItem {
 
     @Override
     public void changeQuality() {
-        increaseQuality();
+        increaseQuality(QUALITY_INCREASE_DEFAULT_QUANTITY);
     }
 
     @Override
     protected void changeQualitySellInOver() {
-        increaseQuality();
+        increaseQuality(QUALITY_INCREASE_DEFAULT_QUANTITY);
         return;
     }
 }
