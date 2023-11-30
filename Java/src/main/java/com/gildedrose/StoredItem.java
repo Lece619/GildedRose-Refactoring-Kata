@@ -64,7 +64,7 @@ public abstract class StoredItem extends Item {
         this.quality = Math.max(this.quality - decreaseQuantity, QUALITY_MIN_QUANTITY);
     }
 
-    protected void increaseQuality() {
-        this.quality = Math.min(this.quality + QUALITY_INCREASE_QUANTITY, QUALITY_MAX_QUANTITY);
+    protected void increaseQuality(int increaseQuantity) {
+        this.quality = Math.min(this.quality + increaseQuantity, QUALITY_MAX_QUANTITY);
     }
 }
