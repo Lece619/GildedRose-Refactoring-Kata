@@ -15,6 +15,7 @@ public class AgedBrie extends StoredItem {
 
     @Override
     protected void changeQualitySellInOver() {
+        increaseQuality();
         return;
     }
 }
