@@ -53,15 +53,15 @@ public abstract class StoredItem extends Item {
     }
 
     protected void changeQuality() {
-        decreaseQuality();
+        decreaseQuality(QUALITY_DECREASE_QUANTITY);
     }
 
     protected void changeQualitySellInOver() {
-        decreaseQuality();
+        decreaseQuality(QUALITY_DECREASE_QUANTITY);
     }
 
-    private void decreaseQuality() {
-        this.quality = Math.max(this.quality - QUALITY_DECREASE_QUANTITY, QUALITY_MIN_QUANTITY);
+    protected void decreaseQuality(int decreaseQuantity) {
+        this.quality = Math.max(this.quality - decreaseQuantity, QUALITY_MIN_QUANTITY);
     }
 
     protected void increaseQuality() {
